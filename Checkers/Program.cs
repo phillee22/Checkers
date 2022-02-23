@@ -21,7 +21,7 @@ namespace Checkers
 
         static void GetPlayers()
         {
-            // player names
+            Console.WriteLine();
             Console.Write("What's the name of Player 1? >> ");
             string p1name = Console.ReadLine();
             Console.WriteLine();
@@ -34,28 +34,36 @@ namespace Checkers
 
         static void InitializeGame()
         {
+            // intro to the user...
             IntroductionUI();
 
+            // create the game on the backend...
             game = new CheckersLib.GameOfCheckers();
             GetPlayers();
+
+            // initialize the board on the backend and create the board's frontend...
             CheckersLib.GameBoard b = game.InitializeBoard();
             _bui = new GameBoardUI(b);
 
-            Console.WriteLine("Here's the board:");
             Console.WriteLine();
+            Console.WriteLine("The board is set and ready:");
             _bui.Print();
         }
+
         static void IntroductionUI()
         {
             Console.WriteLine();
-            Console.WriteLine("Welcome to Checkers.  Here we go...");
-            Console.WriteLine();
+            Console.WriteLine("Welcome to Checkers!!  First let's get the names of the players...");
+
+            // BUG - probably should say something about the available commands...
+
         }
 
         static void PlayGame()
         {
             bool quit = false;
 
+            Console.WriteLine();
             Console.WriteLine("Lets play the game.  ");
             do
             {
